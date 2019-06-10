@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.14.0/js/canvas-to-blob.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Arapey|Muli|Noto+Serif" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="fabric.min.js"></script>
+
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-storage.js"></script>
+    <script defer src="database-init.js"></script>
+
+</head>
+
+
+
+<body>
+    <nav>
+        <ul>
+            <li class="navleft"><a href="index.html">Home</a></li>
+            <li class="navright"><a href="gallery.html">Journey</a></li>
+            <li class="navright"><a href="try3.html">Canvas</a></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="ins">
+
+
+        <div class="indicator" style="display:block">
+
+            <h2 class="hide">Hi 😀 What brought you here today?
+            </h2>
+
+        </div>
+
+
+        <div class="indicator0" style="display:none">
+            <h2 class="hide">Find your inner peace.
+            </h2>
+            <h2 class="hide">Follow the instructions and draw!
+            </h2>
+
+        </div>
+        <div id="scroll-indicator" class="scroll-indicator fa fa-chevron-down">
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="all">
+
+        <div class="main">
+            <div class="ins2">
+                <div class="indicator1" style="display:none">
+                    <h2 class="hide">Choose a color reflects your feelings</h2>
+                    <div class="colorcontainer" style="display:none; margin:auto; height: 32px;
+                    width: 340px;">
+                        <img class="color" id="white" src="img/background/white.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="pink" src="img/background/pink.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="red" src="img/background/red.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="orange" src="img/background/orange.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="yellow" src="img/background/yellow.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="green" src="img/background/green.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="blue" src="img/background/blue.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="bluee" src="img/background/bluee.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="purple" src="img/background/purple.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="gray" src="img/background/gray.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+                        <img class="color" id="black" src="img/background/black.png" width="20" height="20"
+                            style="border-radius: 50%;"></img>
+
+
+                    </div>
+                    <button id="next" class="btn1">Next</button>
+
+                </div>
+
+
+
+
+
+                <div class="indicator2" style="display:none">
+                    <h2 class="hide">Choose a figure feels more like you
+                    </h2>
+                    <div id="images" style="display:none">
+                        <!-- <label for="images">Picture</label> -->
+
+                        <div class="picture">
+                            <img id="outline1" draggable="true" src="img/outline1-02.png" width="100"
+                                height="100"></img>
+                            <img id="outline2" draggable="true" src="img/outline2-02.png" width="100"
+                                height="100"></img>
+                            <img id="outline3" draggable="true" src="img/outline3-02.png" width="100"
+                                height="100"></img>
+
+                            <img id="outline4" draggable="true" src="img/outline4-02.png" width="100"
+                                height="100"></img>
+                            <img id="outline5" draggable="true" src="img/outline5-02.png" width="100"
+                                height="100"></img>
+                            <img id="outline6" draggable="true" src="img/outline6-02.png" width="100"
+                                height="100"></img>
+
+                            <img id="outline7" draggable="true" src="img/outline7-02.png" width="100"
+                                height="100"></img>
+                            <img id="outline8" draggable="true" src="img/outline8-02.png" width="100"
+                                height="100"></img>
+
+                        </div>
+                    </div>
+
+                    <button id="next1" class="btn1">Next</button>
+
+                </div>
+
+                <div class="indicator3" style="display:none">
+                    <h2 class="hide">Choose some pictures related to your feelings and put it in the place you want</h2>
+                    <div id="images2" style="display:none">
+                        <!-- <label for="images">Picture</label> -->
+
+                        <div class="picture">
+                            <img id="picture1" draggable="true" src="img/circle.png" width="60" height="60"></img>
+                            <img id="picture2" draggable="true" src="img/sun.png" width="60" height="60"></img>
+                            <img id="picture12" draggable="true" src="img/tri.png" width="60" height="60"></img>
+
+                            <img id="picture3" draggable="true" src="img/mountain.png" width="60" height="60"></img>
+                            <img id="picture4" draggable="true" src="img/fire.png" width="60" height="60"></img>
+                            <img id="picture10" draggable="true" src="img/water.png" width="60" height="60"></img>
+
+                            <img id="picture5" draggable="true" src="img/light.png" width="60" height="60"></img>
+                            <img id="picture6" draggable="true" src="img/rose.png" width="60" height="60"></img>
+                            <img id="picture8" draggable="true" src="img/egg.png" width="60" height="60"></img>
+                            <img id="picture9" draggable="true" src="img/ink.png" width="60" height="60"></img>
+                            <img id="picture7" draggable="true" src="img/worry.png" width="60" height="60"></img>
+
+                            <img id="picture11" draggable="true" src="img/tiger.png" width="60" height="60"></img>
+                            <img id="picture13" draggable="true" src="img/heart.png" width="60" height="60"></img>
+                            <img id="picture14" draggable="true" src="img/eye.png" width="60" height="60"></img>
+                            <img id="picture15" draggable="true" src="img/star.png" width="60" height="60"></img>
+
+                        </div>
+                    </div>
+                    <button id="next2" class="btn1">Next</button>
+
+
+                </div>
+
+
+                <div class="indicator4" style="display:none">
+                    <h2 class="hide">Try to color your body with different colors and complete the canvas freely</h2>
+                    <button id="drawing-mode" class="btn1">Start Drawing</button>
+
+                </div>
+
+
+
+
+            </div>
+
+            <menu>
+
+
+
+
+
+                <div id="drawing-mode-options" style="display:none">
+
+                    <select class="btn2" id="drawing-mode-selector" style="margin-right:16px;">
+                        <option>Pencil</option>
+                        <option>Circle</option>
+                        <option>Spray</option>
+
+                        <option>hline</option>
+                        <option>vline</option>
+                        <option>square</option>
+                    </select><br>
+
+
+
+
+                    <div class="brush2">
+                        <label class="lable" for=" drawing-color">Line color</label><br>
+                        <input type="color" value="#111111" id="drawing-color">
+
+                    </div>
+                    <div class="brush2">
+                        <label class="lable" for="drawing-shadow-color">Shadow color</label>
+                        <br>
+                        <input type="color" value="#005E7A" id="drawing-shadow-color"><br>
+                    </div>
+
+
+                    <div class="brush">
+
+                        <label class="lable" for="drawing-line-width">Line width:</label>
+                        <span class="info">10</span><input type="range" value="10" min="0" max="150"
+                            id="drawing-line-width">
+
+                    </div>
+
+
+
+                    <div class="brush">
+                        <label class="lable" for="drawing-shadow-width">Shadow width:</label>
+                        <span class="info">0</span><input type="range" value="0" min="0" max="50"
+                            id="drawing-shadow-width">
+
+
+
+                    </div>
+                    <div class="brush">
+                        <label class="lable" for="drawing-shadow-offset">Shadow offset:</label>
+                        <span class="info">0</span><input type="range" value="0" min="0" max="50"
+                            id="drawing-shadow-offset">
+                    </div>
+
+                    <div id="drawingmode" style="display:none; ">
+
+                        <!-- <button id="drawing-mode" class="btn btn-info">Start drawing</button> -->
+                        <button id="clear-canvas" class="btn btn-info">Restart</button>
+                        <button id="finish" class="btn scroll" href="#result"> Save</button>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+            </menu>
+
+
+
+            <canvas id="c" width="1088" height="600" style="margin: auto"></canvas>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <form id="form">
+        <div class="result scroll">Name your work</div>
+        <input id="title" name="text" class="feedback-input scroll" placeholder="Write something..."></input>
+
+        <div class="result scroll" id="result"></div>
+        <textarea id="feedback" name="text" class="feedback-input scroll" placeholder="Write something..."></textarea>
+
+        <div class="result scroll" id="result2"></div>
+        <textarea id="answer" name="text" class="feedback-input scroll" placeholder="Write something..."></textarea>
+
+        <a class="save" id="submit" type="submit">save</a>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script defer src="save.js"></script>
+<script id="main">
+    var colorTest = 'white';
+    // var pictureTest1;
+    // var pictureTest2;
+    // var pictureTest3;
+    // var pictureTest4;
+    var pictureSet = [];
+
+    (function () {
+        var $ = function (id) {
+            return document.getElementById(id)
+        };
+
+        var canvas = this.__canvas = new fabric.Canvas('c'
+
+
+        );
+        /*var white = $('white');
+        var pink = $('pink');
+        var red = $('red');
+        var orange = $('orange');
+        var yellow = $('yellow');
+        var green = $('green');
+        var blue = $('blue');
+        var bluee = $('bluee');
+        var purple = $('purple');
+        var gray = $('gray');
+        var black = $('black');*/
+        var outline1 = $('outline1');
+        var outline2 = $('outline2');
+        var outline3 = $('outline3');
+        var outline4 = $('outline4');
+        var outline5 = $('outline5');
+        var outline6 = $('outline6');
+        var outline7 = $('outline7');
+        var outline8 = $('outline8');
+
+        var picture1 = $('picture1');
+        var picture2 = $('picture2');
+        var picture3 = $('picture3');
+        var picture4 = $('picture4');
+        var picture5 = $('picture5');
+        var picture6 = $('picture6');
+        var picture7 = $('picture7');
+        var picture8 = $('picture8');
+        var picture9 = $('picture9');
+        var picture10 = $('picture10');
+        var picture11 = $('picture11');
+        var picture12 = $('picture12');
+        var picture13 = $('picture13');
+        var picture14 = $('picture14');
+        var picture15 = $('picture15');
+
+
+
+
+
+
+
+        //--background color choose--//
+
+        // function changecolor(id) {
+        // document.body.style.background = document.getElementById(id).innerHTML;
+        // };
+
+        white.onclick = function () {
+            canvas.backgroundColor = 'rgba(255,255,255,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest = 'white which is the color of new beginnings, of wiping the slate clean, so to speak.';
+        }
+
+
+
+
+        pink.onclick = function () {
+            canvas.backgroundColor = 'rgba(255,104,192,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'pink which is a sign of hope. It is a positive color inspiring warm and comforting feelings, a sense that everything will be okay.';
+
+        }
+        red.onclick = function () {
+            canvas.backgroundColor = 'rgba(255,61,61,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'red which is associated with strong emotions such as love and anger. Red is the color used universally to signify danger, courage, strength, and power. Red is stimulating, vibrant and exciting. Red inspires desire with a strong link to sexuality and increased appetites.';
+
+
+
+        }
+        orange.onclick = function () {
+            canvas.backgroundColor = 'rgba(255,147,30,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'orange which is associated with excitement, warmth and enthusiasm. Social and inviting, this is the color of the extrovert, exuding happiness and joy, releasing inhibitions.';
+        }
+
+        yellow.onclick = function () {
+            canvas.backgroundColor = 'rgba(255,224,48,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'yellow which is associated with youthful, fresh energy. This color of sunshine is uplifting and illuminating and associated with success and confidence. Yellow stimulates the left side of the brain, helping with clear thinking and quick decision making. ';
+
+        }
+
+        green.onclick = function () {
+            canvas.backgroundColor = 'rgba(122,201,67,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'green which is associated with a refreshing and peaceful color. It evokes feeling of abundance and a plentiful environment while providing a restful and secure feeling. ';
+
+        }
+
+        blue.onclick = function () {
+            canvas.backgroundColor = 'rgba(48,199,255,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest = 'light blue which is associated with open communication and clarity of thought';
+
+        }
+
+        bluee.onclick = function () {
+            canvas.backgroundColor = 'rgba(48,117,255,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'blue which is associated with reliable and responsible.This color exhibits an inner security and confidence.';
+        }
+
+
+
+        purple.onclick = function () {
+            canvas.backgroundColor = 'rgba(167,60,252,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'purple which is associated with imagination and spirituality. It stimulates the imagination and inspires high ideals. It is an introspective color, allowing us to get in touch with our deeper thoughts.';
+
+        }
+
+        gray.onclick = function () {
+            canvas.backgroundColor = 'rgba(124,124,124,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest =
+                'gray which is subdued, quiet and reserved. It does not stimulate, energize, rejuvenate or excite.';
+
+        }
+        black.onclick = function () {
+            canvas.backgroundColor = 'rgba(0,0,0,1)';
+            canvas.renderAll();
+            //this.__canvases.push(canvas);
+            colorTest = 'black which gives protection from external emotional stress.';
+
+        }
+
+
+
+
+        //--picture choose--//
+
+        outline1.onclick = function () {
+            var imgElement = document.getElementById('outline1');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+        outline2.onclick = function () {
+            var imgElement = document.getElementById('outline2');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+        outline3.onclick = function () {
+            var imgElement = document.getElementById('outline3');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+        outline4.onclick = function () {
+            var imgElement = document.getElementById('outline4');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+        outline5.onclick = function () {
+            var imgElement = document.getElementById('outline5');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+        outline6.onclick = function () {
+            var imgElement = document.getElementById('outline6');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        outline7.onclick = function () {
+            var imgElement = document.getElementById('outline7');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        outline8.onclick = function () {
+            var imgElement = document.getElementById('outline8');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+
+            canvas.add(imgInstance);
+
+
+        }
+
+
+        picture1.onclick = function () {
+            var imgElement = document.getElementById('picture1');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push(
+                'circle represent wholeness and a natural sense of completion. They can signify eternity and constant movement'
+            );
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture2.onclick = function () {
+            var imgElement = document.getElementById('picture2');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('sun which be seen as the self, life, power, glory, foresight and vision.');
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture3.onclick = function () {
+            var imgElement = document.getElementById('picture3');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('mountain which usually represent as facing difficulties and making progress.');
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture4.onclick = function () {
+            var imgElement = document.getElementById('picture4');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push(
+                'fire which can symbolize anger, punishment, and destruction. It can also signify rebirth.');
+
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture5.onclick = function () {
+            var imgElement = document.getElementById('picture5');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push(
+                'light which has been understood as purity, goodness, clarity and enlightment. Sometimes, it means a higher power.'
+            );
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture6.onclick = function () {
+            var imgElement = document.getElementById('picture6');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('rose which has been used to represent the nation.');
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture7.onclick = function () {
+            var imgElement = document.getElementById('picture7');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('scrambled mind, which is associated with disorder, panic, and confused. ');
+            canvas.add(imgInstance);
+
+
+        }
+        picture8.onclick = function () {
+            var imgElement = document.getElementById('picture8');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push(
+                'egg which is associated with new life, birth, fertility and the potential for growth.');
+            canvas.add(imgInstance);
+
+
+        }
+        picture9.onclick = function () {
+            var imgElement = document.getElementById('picture9');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('inkblot, which can be interpreted in many way.');
+            canvas.add(imgInstance);
+
+
+        }
+        picture10.onclick = function () {
+            var imgElement = document.getElementById('picture10');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('water which been understand as birth, cleansing and fertility.');
+            canvas.add(imgInstance);
+
+
+        }
+        picture11.onclick = function () {
+            var imgElement = document.getElementById('picture11');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('tiger which is understood as strength, royalty and authority. ');
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture12.onclick = function () {
+            var imgElement = document.getElementById('picture12');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('triangle which is associated with the concept such as power and stability');
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture13.onclick = function () {
+            var imgElement = document.getElementById('picture13');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('heart which is associated with kindness and loyalty');
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture14.onclick = function () {
+            var imgElement = document.getElementById('picture14');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push(
+                'eye which is associated with intelligence, light, vigilance, moral conscience, and truth. The eye often means judgment and authority.'
+            );
+            canvas.add(imgInstance);
+
+
+        }
+
+        picture15.onclick = function () {
+            var imgElement = document.getElementById('picture15');
+            var imgInstance = new fabric.Image(imgElement, {
+                left: 0,
+                top: 0,
+            });
+            pictureSet.push('star which is associated with magic, inspiration and importance ');
+            canvas.add(imgInstance);
+
+
+        }
+
+        fabric.Object.prototype.transparentCorners = false;
+
+
+        var drawingModeEl = $('drawing-mode'),
+            drawingOptionsEl = $('drawing-mode-options'),
+            drawingColorEl = $('drawing-color'),
+            drawingShadowColorEl = $('drawing-shadow-color'),
+            drawingLineWidthEl = $('drawing-line-width'),
+            drawingShadowWidth = $('drawing-shadow-width'),
+            drawingShadowOffset = $('drawing-shadow-offset'),
+            clearEl = $('clear-canvas'),
+            Finish = $('finish');
+        /* imageselect = $('.icon');*/
+
+
+
+        clearEl.onclick = function () {
+            canvas.clear()
+        };
+
+        Finish.onclick = function () {
+
+            var symbol = pictureSet.join(', ');
+
+            document.getElementById("result").innerHTML = "I notice that you choose " + colorTest +
+                " as your background color. Can you tell me a thing that currently happened related to it? or why do you choose this color?"
+            document.getElementById("result2").innerHTML = "you choose " + symbol +
+                " . Is your feeling related to it? Do you have anything related to the meaning of symbol";
+
+
+
+            // alert("you have choose "+colorTest+" colors and "+ pictureTest1+ );
+
+
+        };
+
+
+        drawingModeEl.onclick = function () {
+
+
+            canvas.isDrawingMode = !canvas.isDrawingMode;
+
+            if (canvas.isDrawingMode) {
+                drawingModeEl.innerHTML = '';
+                drawingOptionsEl.style.display = '';
+
+
+            } else {
+                drawingModeEl.innerHTML = 'drawing';
+                drawingOptionsEl.style.display = 'Next';
+
+
+            }
+        };
+
+
+
+
+
+
+        if (fabric.PatternBrush) {
+            var vLinePatternBrush = new fabric.PatternBrush(canvas);
+            vLinePatternBrush.getPatternSrc = function () {
+
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = 10;
+                var ctx = patternCanvas.getContext('2d');
+
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 5;
+                ctx.beginPath();
+                ctx.moveTo(0, 5);
+                ctx.lineTo(10, 5);
+                ctx.closePath();
+                ctx.stroke();
+
+                return patternCanvas;
+            };
+
+            var hLinePatternBrush = new fabric.PatternBrush(canvas);
+            hLinePatternBrush.getPatternSrc = function () {
+
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = 10;
+                var ctx = patternCanvas.getContext('2d');
+
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 5;
+                ctx.beginPath();
+                ctx.moveTo(5, 0);
+                ctx.lineTo(5, 10);
+                ctx.closePath();
+                ctx.stroke();
+
+                return patternCanvas;
+            };
+
+            var squarePatternBrush = new fabric.PatternBrush(canvas);
+            squarePatternBrush.getPatternSrc = function () {
+
+                var squareWidth = 10,
+                    squareDistance = 2;
+
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = squareWidth + squareDistance;
+                var ctx = patternCanvas.getContext('2d');
+
+                ctx.fillStyle = this.color;
+                ctx.fillRect(0, 0, squareWidth, squareWidth);
+
+                return patternCanvas;
+            };
+
+
+
+            var img = new Image();
+            img.src = 'img/1.png';
+
+            var texturePatternBrush = new fabric.PatternBrush(canvas);
+            texturePatternBrush.source = img;
+        }
+
+
+
+        $('drawing-mode-selector').onchange = function () {
+
+            if (this.value === 'hline') {
+                canvas.freeDrawingBrush = vLinePatternBrush;
+            } else if (this.value === 'vline') {
+                canvas.freeDrawingBrush = hLinePatternBrush;
+            } else if (this.value === 'square') {
+                canvas.freeDrawingBrush = squarePatternBrush;
+            } else {
+                canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
+            }
+
+            if (canvas.freeDrawingBrush) {
+                canvas.freeDrawingBrush.color = drawingColorEl.value;
+                canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+                canvas.freeDrawingBrush.shadow = new fabric.Shadow({
+                    blur: parseInt(drawingShadowWidth.value, 10) || 0,
+                    offsetX: 0,
+                    offsetY: 0,
+                    affectStroke: true,
+                    color: drawingShadowColorEl.value,
+                });
+            }
+        };
+
+
+        drawingColorEl.onchange = function () {
+            canvas.freeDrawingBrush.color = this.value;
+        };
+        drawingShadowColorEl.onchange = function () {
+            canvas.freeDrawingBrush.shadow.color = this.value;
+        };
+        drawingLineWidthEl.onchange = function () {
+            canvas.freeDrawingBrush.width = parseInt(this.value, 10) || 1;
+            this.previousSibling.innerHTML = this.value;
+        };
+        drawingShadowWidth.onchange = function () {
+            canvas.freeDrawingBrush.shadow.blur = parseInt(this.value, 10) || 0;
+            this.previousSibling.innerHTML = this.value;
+        };
+        drawingShadowOffset.onchange = function () {
+            canvas.freeDrawingBrush.shadow.offsetX = parseInt(this.value, 10) || 0;
+            canvas.freeDrawingBrush.shadow.offsetY = parseInt(this.value, 10) || 0;
+            this.previousSibling.innerHTML = this.value;
+        };
+
+        if (canvas.freeDrawingBrush) {
+            canvas.freeDrawingBrush.color = drawingColorEl.value;
+            canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+            canvas.freeDrawingBrush.shadow = new fabric.Shadow({
+                blur: parseInt(drawingShadowWidth.value, 10) || 0,
+                offsetX: 0,
+                offsetY: 0,
+                affectStroke: true,
+                color: drawingShadowColorEl.value,
+            });
+        }
+    })();
+</script>
+
+</html>

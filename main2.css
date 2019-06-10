@@ -1,0 +1,49 @@
+.main {
+    width: 880px;
+    display: block;
+    margin: auto;
+    margin-top: 15%;
+}
+
+h2 {
+
+    position: relative;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+p {
+
+    position: relative;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+button {
+    margin: auto;
+    display: inline-block;
+    position: absolute;
+    border-radius: 5px;
+    top: 85%;
+    left: 45%;
+    background-color: transparent;
+    border: black 1px solid;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+
+}
+
+button:hover {
+
+    border: rgb(204, 204, 204) 1px solid;
+    color: rgb(204, 204, 204);
+
+
+}
